@@ -37,7 +37,8 @@ export default class SearchBar extends React.Component {
                     <Col s={4} />
                     <Input 
                         s={4}
-                        label="Enter gif term to search, for example 'turtle' " 
+                        className='input-text'
+                        label="Enter gif term to search, e.g. 'Turtle' " 
                         name="search"
                         onChange={this.handleChange}
                         value={this.state.term}    
