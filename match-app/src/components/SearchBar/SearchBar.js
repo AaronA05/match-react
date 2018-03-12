@@ -21,13 +21,11 @@ export default class SearchBar extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        console.log("WHOOOAAA")
         this.createQuery(this.state.search);
     }
 
     createQuery(text){
         this.props.sendFromApp(text)
-        console.log(text);
     }
 
     render() {
@@ -38,7 +36,7 @@ export default class SearchBar extends React.Component {
                     <Input 
                         s={4}
                         className='input-text'
-                        label="Enter gif term to search, e.g. 'Turtle' " 
+                        label="Enter gif term to search, e.g. 'Dogs' " 
                         name="search"
                         onChange={this.handleChange}
                         value={this.state.term}    

@@ -11,7 +11,7 @@ class App extends Component {
   };
 
   componentDidMount(){
-    this.searchGiphy("turtle");
+    this.searchGiphy("dog");
   }
 
   searchGiphy(query){
@@ -29,6 +29,21 @@ class App extends Component {
     this.searchGiphy(dataFromSearch);
   }
 
+  fromGif = (text) => {
+    var myState = JSON.parse(JSON.stringify(this.state.results));
+    myState.forEach(function(value,i){
+      if(text === value.title){
+        myState[i].images.original.url = myState[i].images.original_still.url;
+      }
+      
+    })
+    this.setState({
+      results:myState
+    })
+  
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -42,6 +57,7 @@ class App extends Component {
                 image={data.images.original.url}
                 title={data.title}
                 link={data.url}
+                stopTheGif={this.fromGif}
             />  
             );
           })}
